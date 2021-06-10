@@ -1,5 +1,7 @@
 const Discord = require('discord.js');
 
+require("dotenv").config();
+
 const client = new Discord.Client();
 
 const prefix = '-';
@@ -15,13 +17,15 @@ client.on('message', message =>{
     const args =  message.content.slice(prefix.length).split(/ +/);
     const command = args.shift().toLowerCase();
 
-    if(command === 'olá MattzBot'){
-        message.channel.send('Opa Tudo bom?');
+    if(command === 'Ola MattzBot'){
+        message.channel.send('Olá tudo bom?');
+        console.log('Me Chamou aq');
     }
+
 
 
 });
 
 
 
-client.login('ODE3NTY5NTUyNTEwMDkxMjY1.YELa-w.PwFRYomzEJ8SA-WOLPgzLvihmp8');
+client.login(process.env.TOKEN);
